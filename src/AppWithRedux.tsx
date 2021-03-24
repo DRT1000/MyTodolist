@@ -1,9 +1,8 @@
-import React, {useCallback} from 'react';
+import React, {useCallback} from "react";
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import AddItemForm from "./AdditemForm";
-import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
-import {Menu} from "@material-ui/icons";
+
 import {
     ChangeTodolistFilterAC,
     ChangeTodolistTitleAC,
@@ -16,8 +15,10 @@ import {
     ChangeTaskTitleAC,
     RemoveTaskAC,
 } from "./state/tasks-reducer";
-import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "./state/store";
+import {Menu} from "@material-ui/icons";
+import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography} from "@material-ui/core";
+import {useDispatch, useSelector} from "react-redux";
 
 export type FilterType = "all" | "active" | "completed"
 export type TodolistType = {
@@ -30,7 +31,7 @@ export type TasksStateType = {
 }
 
 
-function App() {
+function AppWithRedux() {
 
     const todolists = useSelector<AppRootStateType, Array<TodolistType>>(state => state.todolists)
     const tasks = useSelector<AppRootStateType, TasksStateType>(state => state.tasks)
@@ -116,4 +117,4 @@ function App() {
     );
 }
 
-export default App;
+export default AppWithRedux;
